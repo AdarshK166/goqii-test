@@ -5,7 +5,7 @@ const Userlist = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const apiUrl = window.location.origin + "/api/action.php";
+    const apiUrl = "http://localhost/reactapi/";
 
     fetch(apiUrl)
       .then((response) => response.json())
@@ -16,7 +16,7 @@ const Userlist = () => {
 
   const handleDelete = (user_id) => {
     if (confirm("Are you sure you want to remove it?")) {
-      fetch(window.location.origin + `/api/action.php?id=${user_id}`, {
+      fetch(`http://localhost/reactapi/?id=${user_id}`, {
         method: "DELETE",
       })
         .then((response) => response.json())
@@ -41,36 +41,40 @@ const Userlist = () => {
         </div>
       </div>
       <div className="card-body">
-        <table className="table table-bordered">
-          <thead>
-            <tr>
-              <th>First Name</th>
-              <th>Email</th>
-              <th>Password</th>
-              <th>Date of Birth</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user, index) => (
-              <tr key={index}>
-                <td>{user.first_name}</td>
-                <td>{user.email}</td>
-                <td>{user.password}</td>
-                <td>{user.dob}</td>
-                <td>
-                  <Link to={`/edit/${user.id}`} className="btn btn-warning btn-sm">
-                    Edit
-                  </Link>
-                  &nbsp;
-                  <button type="button" onClick={() => handleDelete(user.id)} className="btn btn-danger btn-sm">
-                    Delete
-                  </button>
-                </td>
+        <div className="table-responsive">
+          {" "}
+          {/* Add this div for responsiveness */}
+          <table className="table table-bordered">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Date of Birth</th>
+                <th>Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {users.map((user, index) => (
+                <tr key={index}>
+                  <td>{user.first_name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.password}</td>
+                  <td>{user.dob}</td>
+                  <td>
+                    <Link to={`/edit/${user.id}`} className="btn btn-warning btn-sm">
+                      Edit
+                    </Link>
+                    &nbsp;
+                    <button type="button" onClick={() => handleDelete(user.id)} className="btn btn-danger btn-sm">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

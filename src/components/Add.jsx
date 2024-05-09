@@ -23,10 +23,11 @@ const Add = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch(window.location.origin + "/api/action.php", {
+    fetch("http://localhost/reactapi/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify(user),
     })
