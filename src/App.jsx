@@ -7,17 +7,27 @@ import Edit from "./components/Edit";
 
 function App() {
   return (
-    <div className="container">
-      <h1 className="mt-5 mb-5 text-center">
-        <b>CRUD operations</b>
-      </h1>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Userlist />} />
-          <Route path="/add" element={<Add />} />
-          <Route path="/edit/:user_id" element={<Edit />} />
-        </Routes>
-      </BrowserRouter>
+    <div className="container-fluid">
+      <div className="row justify-content-center align-items-center vh-100">
+        <div className="col-md-10">
+          {" "}
+          {/* Increase the column width */}
+          <div className="card">
+            <div className="card-body">
+              <h1 className="card-title text-center mb-5">
+                <b>CRUD operations</b>
+              </h1>
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/" element={<Userlist />} />
+                  <Route path="/add" element={<Add />} />
+                  <Route path="/edit/:user_id" element={<Edit />} />
+                </Routes>
+              </BrowserRouter>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

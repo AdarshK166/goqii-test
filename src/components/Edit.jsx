@@ -22,7 +22,7 @@ function Edit() {
   };
 
   const fetchUserData = () => {
-    fetch(window.location.origin + `/api/action.php?id=${user_id}`)
+    fetch(`http://localhost/reactapi/?id=${user_id}`)
       .then((response) => response.json())
       .then((data) => {
         setUser(data);
@@ -36,7 +36,7 @@ function Edit() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch(window.location.origin + `/api/action.php?id=${user_id}`, {
+    fetch(`http://localhost/reactapi/?id=${user_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -63,13 +63,15 @@ function Edit() {
       </div>
       <div className="card-body">
         <div className="row">
-          <div className="col-md-4">&nbsp;</div>
-          <div className="col-md-4">
-            <form method="POST" onSubmit={handleSubmit}>
+          <div className="col-md-6 offset-md-3">
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
-                <label>First Name</label>
+                <label htmlFor="first_name" className="form-label">
+                  First Name
+                </label>
                 <input
                   type="text"
+                  id="first_name"
                   name="first_name"
                   className="form-control"
                   value={user.first_name}
@@ -77,13 +79,25 @@ function Edit() {
                 />
               </div>
               <div className="mb-3">
-                <label>Email</label>
-                <input type="email" name="email" className="form-control" value={user.email} onChange={handleChange} />
+                <label htmlFor="email" className="form-label">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="form-control"
+                  value={user.email}
+                  onChange={handleChange}
+                />
               </div>
               <div className="mb-3">
-                <label>Password</label>
+                <label htmlFor="password" className="form-label">
+                  Password
+                </label>
                 <input
                   type="password"
+                  id="password"
                   name="password"
                   className="form-control"
                   value={user.password}
@@ -91,11 +105,22 @@ function Edit() {
                 />
               </div>
               <div className="mb-3">
-                <label>Date of Birth</label>
-                <input type="date" name="dob" className="form-control" value={user.dob} onChange={handleChange} />
+                <label htmlFor="dob" className="form-label">
+                  Date of Birth
+                </label>
+                <input
+                  type="date"
+                  id="dob"
+                  name="dob"
+                  className="form-control"
+                  value={user.dob}
+                  onChange={handleChange}
+                />
               </div>
-              <div className="mb-3">
-                <input type="submit" className="btn btn-primary" value="Edit" />
+              <div className="mb-3 text-center">
+                <button type="submit" className="btn btn-primary">
+                  Edit
+                </button>
               </div>
             </form>
           </div>
