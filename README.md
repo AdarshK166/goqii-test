@@ -1,4 +1,4 @@
-# Project Name
+# React CRUD App
 
 ## Overview
 This project is a CRUD (Create, Read, Update, Delete) app built using ReactJS for the frontend, PHP for the backend, and MySQL for the database.
