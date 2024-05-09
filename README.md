@@ -47,4 +47,3 @@ CREATE TABLE IF NOT EXISTS users (
 php -S localhost:8000 -t action 
 ```
 
-Access the application in your web browser at [http://localhost:3000](http://localhost:3000).
