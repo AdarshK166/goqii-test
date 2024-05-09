@@ -1,49 +1,37 @@
-# React Project with PHP and SQL Backend
+# Project Name
 
-This project is a web application built with React for the frontend, and PHP and SQL for the backend.
+## Overview
+This project is a CRUD (Create, Read, Update, Delete) app built using ReactJS for the frontend, PHP for the backend, and MySQL for the database.
 
 ## Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- Node.js and npm (Node Package Manager)
-- PHP
-- MySQL or any other SQL database server
+Before getting started, ensure you have the following installed:
+- [Node.js](https://nodejs.org/) and npm
+- [Git](https://git-scm.com/)
+- [XAMPP](https://www.apachefriends.org/index.html)
 
 ## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/AdarshK166/goqii-test.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd goqii-test
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
+## Setup
+1. Copy the `reactapi` folder to `xampp/htdocs`.
+2. Start XAMPP and ensure both Apache and MySQL are running.
+3. Open a web browser and go to `localhost/phpmyadmin`.
+4. Create a table named `userdb` and import `userdb.sql` from the project's root folder.
+
+## Running the Project
+Start the project:
 ```bash
-git clone https://github.com/AdarshK166/goqii-test.git
-cd goqii-test
-npm install
+npm run dev
 ```
-
-```bash
-# Set up your SQL database and tables according to your project requirements.
-
-# Create a database named `userdb` and a table named `users` with the specified fields:
-
-CREATE DATABASE IF NOT EXISTS userdb;
-
-USE userdb;
-
-CREATE TABLE IF NOT EXISTS users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    dob DATE NOT NULL
-);
-```
-
-```bash
-# Set up your SQL database and tables according to your project requirements.
-# Configure your PHP files in the `backend` directory to connect to your SQL database. Update the database credentials as needed.
-```
-
-## Running the Application
-
-```bash
-php -S localhost:8000 -t action 
-```
-
+The running port should be displayed in the terminal.
